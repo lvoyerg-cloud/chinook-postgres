@@ -24,7 +24,7 @@ SELECT customer_id AS id_cliente, first_name AS nombre, last_name AS apellido, e
 ---
 
 ### Apartado 2: Paises Representados
-**Pregunta de negocio:** ¨En que paises se encuentran distribuidos nuestros clientes sin repetir ubicaciones?
+**Pregunta de negocio:** ¿En que paises se encuentran distribuidos nuestros clientes sin repetir ubicaciones?
 
 ```sql
 SELECT DISTINCT country AS pais FROM customer ORDER BY pais ASC;
@@ -43,7 +43,7 @@ SELECT DISTINCT country AS pais FROM customer ORDER BY pais ASC;
 ---
 
 ### Apartado 3: Criterio Numerico
-**Pregunta de negocio:** ¨Que pistas duran mas de 4 minutos (240,000 ms) y tienen un precio estandar de $0.99?
+**Pregunta de negocio:** ¿Que pistas duran mas de 4 minutos (240,000 ms) y tienen un precio estandar de $0.99?
 
 ```sql
 SELECT track_id, name, milliseconds, unit_price FROM track WHERE milliseconds > 240000 AND unit_price = 0.99;
@@ -61,7 +61,7 @@ SELECT track_id, name, milliseconds, unit_price FROM track WHERE milliseconds > 
 ---
 
 ### Apartado 4: Alternativas Controladas
-**Pregunta de negocio:** ¨Que clientes son de Brasil o Argentina pero no tienen una compania registrada?
+**Pregunta de negocio:** ¿Que clientes son de Brasil o Argentina pero no tienen una compania registrada?
 
 ```sql
 SELECT customer_id, first_name, country, company FROM customer WHERE (country = 'Brazil' OR country = 'Argentina') AND company IS NULL;
@@ -79,7 +79,7 @@ SELECT customer_id, first_name, country, company FROM customer WHERE (country = 
 ---
 
 ### Apartado 5: Pertenencia
-**Pregunta de negocio:** ¨Quienes son los clientes que residen en mercados clave de Latinoamerica (Brasil, Argentina y Chile)?
+**Pregunta de negocio:** ¿Quienes son los clientes que residen en mercados clave de Latinoamerica (Brasil, Argentina y Chile)?
 
 ```sql
 SELECT customer_id, first_name, last_name, country FROM customer WHERE country IN ('Brazil', 'Argentina', 'Chile');
@@ -97,7 +97,7 @@ SELECT customer_id, first_name, last_name, country FROM customer WHERE country I
 ---
 
 ### Apartado 6: Intervalo
-**Pregunta de negocio:** ¨Que canciones tienen una duracion estandar comercial de entre 3 y 5 minutos (180,000 a 300,000 milisegundos)?
+**Pregunta de negocio:** ¿Que canciones tienen una duracion estandar comercial de entre 3 y 5 minutos (180,000 a 300,000 milisegundos)?
 
 ```sql
 SELECT track_id, name, milliseconds FROM track WHERE milliseconds BETWEEN 180000 AND 300000;
@@ -115,7 +115,7 @@ SELECT track_id, name, milliseconds FROM track WHERE milliseconds BETWEEN 180000
 ---
 
 ### Apartado 7: Patrones
-**Pregunta de negocio:** ¨Que pistas contienen la palabra 'love' al inicio del titulo (Sensible e insensible a mayusculas)?
+**Pregunta de negocio:** ¿Que pistas contienen la palabra 'love' al inicio del titulo (Sensible e insensible a mayusculas)?
 
 ```sql
 -- 7a) Case-sensitive
@@ -137,7 +137,7 @@ SELECT track_id, name FROM track WHERE name ILIKE 'love%%';
 ---
 
 ### Apartado 8: Ausencias
-**Pregunta de negocio:** ¨Que clientes omitieron registrar su numero de Fax frente a los que si lo proporcionaron?
+**Pregunta de negocio:** ¿Que clientes omitieron registrar su numero de Fax frente a los que si lo proporcionaron?
 
 ```sql
 -- 8a) Registro nulo
@@ -158,7 +158,7 @@ SELECT customer_id, first_name, fax FROM customer WHERE fax IS NOT NULL;
 ---
 
 ### Apartado 9: Ranking
-**Pregunta de negocio:** ¨Cuales son las 10 pistas de mayor duracion de todo el catalogo?
+**Pregunta de negocio:** ¿Cuales son las 10 pistas de mayor duracion de todo el catalogo?
 
 ```sql
 SELECT track_id, name, milliseconds FROM track ORDER BY milliseconds DESC, track_id ASC LIMIT 10;
@@ -176,7 +176,7 @@ SELECT track_id, name, milliseconds FROM track ORDER BY milliseconds DESC, track
 ---
 
 ### Apartado 10: Paginacion
-**Pregunta de negocio:** ¨Como obtener la primera y segunda pagina de clientes navegando de 5 en 5?
+**Pregunta de negocio:** ¿Como obtener la primera y segunda pagina de clientes navegando de 5 en 5?
 
 ```sql
 -- Pagina 1 (Registros del 1 al 5)
