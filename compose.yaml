@@ -1,0 +1,15 @@
+﻿services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: chinook_db
+    environment:
+      POSTGRES_DB: chinook
+      POSTGRES_USER: chinook_user
+      POSTGRES_PASSWORD: chinook_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
