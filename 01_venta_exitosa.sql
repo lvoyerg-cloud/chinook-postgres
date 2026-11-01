@@ -1,0 +1,1 @@
+-- Escenario 1: Venta exitosa 
